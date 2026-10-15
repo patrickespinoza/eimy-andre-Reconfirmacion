@@ -1,16 +1,8 @@
+
 import { motion } from "framer-motion";
 
 /* =========================================
-   FRASE BÍBLICA — MATEO 19:5-6
-
-   Imagen:
-   public/frase.jpg
-
-   Estilo:
-   - Clásico
-   - Elegante
-   - Verde olivo / marfil
-   - Sin degradados
+   PALETA DE COLORES
 ========================================= */
 
 const palette = {
@@ -87,26 +79,21 @@ function Divider() {
       <span
         className="h-px w-10 sm:w-14"
         style={{
-          backgroundColor: "rgba(247,244,236,0.65)",
+          backgroundColor: palette.beige,
         }}
       />
 
       <span
-        className="
-          h-[5px]
-          w-[5px]
-          rotate-45
-          border
-        "
+        className="h-[6px] w-[6px] rotate-45 border"
         style={{
-          borderColor: "rgba(247,244,236,0.75)",
+          borderColor: palette.beige,
         }}
       />
 
       <span
         className="h-px w-10 sm:w-14"
         style={{
-          backgroundColor: "rgba(247,244,236,0.65)",
+          backgroundColor: palette.beige,
         }}
       />
     </div>
@@ -114,106 +101,97 @@ function Divider() {
 }
 
 /* =========================================
-   COMPONENTE
+   RECONFIRMACIÓN DE ASISTENCIA
 ========================================= */
 
 export default function FraseModal() {
   return (
     <section
       className="
-        relative
-        w-full
+        relative w-full
         overflow-hidden
-        bg-[#303A22]
+        bg-white
+        px-4 py-20
+        sm:px-8 sm:py-28
+        md:py-32
       "
     >
-      {/* =====================================
-          IMAGEN
-      ===================================== */}
+      {/* ENCABEZADO EXTERIOR */}
 
       <motion.div
         className="
-          relative
-          min-h-[720px]
-          w-full
-          overflow-hidden
-          sm:min-h-[780px]
-          md:min-h-[820px]
+          mx-auto mb-10
+          flex flex-col
+          items-center text-center
         "
-        initial={{
-          opacity: 0,
-        }}
-        whileInView={{
-          opacity: 1,
-        }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease }}
+      >
+        <p
+          className="
+            text-[10px]
+            uppercase tracking-[0.4em]
+            sm:text-[11px]
+          "
+          style={{ color: palette.olive }}
+        >
+          Eimy Edith & Andre Soni
+        </p>
+
+        <div
+          className="mt-5 h-px w-16"
+          style={{ backgroundColor: palette.beige }}
+        />
+
+        <p
+          className="
+            mt-5 font-serif
+            text-[12px]
+            uppercase tracking-[0.25em]
+          "
+          style={{ color: palette.oliveDark }}
+        >
+          Reconfirmación de asistencia
+        </p>
+      </motion.div>
+
+      {/* TARJETA VERDE OLIVO */}
+
+      <motion.div
+        className="
+          relative mx-auto
+          w-full max-w-[760px]
+          overflow-hidden
+          bg-[#3F4A2C]
+          px-8 py-16
+          text-center
+          sm:px-16 sm:py-20
+          md:px-20 md:py-24
+        "
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{
           once: true,
-          amount: 0.15,
+          amount: 0.1,
         }}
         transition={{
-          duration: 1.1,
+          duration: 1,
           ease,
         }}
       >
-        <motion.img
-          src="/frase.jpg"
-          alt="Frase bíblica de Mateo 19:5-6"
-          loading="lazy"
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            object-center
-          "
-          initial={{
-            scale: 1.04,
-          }}
-          whileInView={{
-            scale: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 5,
-            ease: "easeOut",
-          }}
-        />
-
-        {/* =====================================
-            OSCURECIMIENTO PLANO
-
-            No es degradado.
-        ===================================== */}
-
-        <div
-          className="
-            absolute
-            inset-0
-          "
-          style={{
-            backgroundColor: "rgba(25, 30, 19, 0.48)",
-          }}
-        />
-
-        {/* =====================================
-            MARCO EXTERIOR
-        ===================================== */}
+        {/* MARCO EXTERIOR */}
 
         <div
           className="
             pointer-events-none
-            absolute
-            inset-4
-            z-10
+            absolute inset-3
             border
-            sm:inset-7
-            md:inset-9
+            sm:inset-5
           "
           style={{
-            borderColor: "rgba(247,244,236,0.58)",
+            borderColor: "rgba(247,244,236,0.45)",
           }}
         />
 
@@ -222,183 +200,299 @@ export default function FraseModal() {
         <div
           className="
             pointer-events-none
-            absolute
-            inset-[22px]
-            z-10
+            absolute inset-[17px]
             border
-            sm:inset-[34px]
-            md:inset-[42px]
+            sm:inset-[26px]
           "
           style={{
-            borderColor: "rgba(247,244,236,0.18)",
+            borderColor: "rgba(247,244,236,0.15)",
           }}
         />
 
-        {/* =====================================
-            BOTÁNICOS
-        ===================================== */}
+        {/* ADORNOS BOTÁNICOS */}
 
         <BotanicalCorner
           className="
             pointer-events-none
-            absolute
-            -bottom-4
-            -left-2
-            z-10
-            h-[170px]
-            w-[120px]
-            text-[#F7F4EC]/35
-            sm:h-[220px]
-            sm:w-[150px]
+            absolute -bottom-5 -left-4
+            h-[150px] w-[110px]
+            text-[#F7F4EC]/25
+            sm:h-[200px] sm:w-[145px]
           "
         />
 
         <BotanicalCorner
           className="
             pointer-events-none
-            absolute
-            -right-2
-            -top-4
-            z-10
-            h-[170px]
-            w-[120px]
+            absolute -right-4 -top-5
+            h-[150px] w-[110px]
             rotate-180
-            text-[#F7F4EC]/35
-            sm:h-[220px]
-            sm:w-[150px]
+            text-[#F7F4EC]/25
+            sm:h-[200px] sm:w-[145px]
           "
         />
 
-        {/* =====================================
-            CONTENIDO
-        ===================================== */}
+        {/* CONTENIDO DE LA TARJETA */}
 
-        
+        <div
+          className="
+            relative z-10
+            mx-auto flex
+            max-w-[560px]
+            flex-col items-center
+          "
+        >
+          {/* DETALLE SUPERIOR */}
 
-          {/* =====================================
-    CONTENIDO
-    TODO AGRUPADO EN LA PARTE INFERIOR
-===================================== */}
+          <motion.p
+            className="
+              font-serif text-[11px]
+              uppercase tracking-[0.35em]
+            "
+            style={{ color: palette.beige }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Nuestra boda
+          </motion.p>
 
-<div
-  className="
-    relative
-    z-20
-    mx-auto
-    flex
-    min-h-[720px]
-    w-full
-    max-w-[900px]
-    flex-col
-    items-center
-    justify-end
-    px-8
-    pb-16
-    pt-20
-    text-center
-    sm:min-h-[780px]
-    sm:px-14
-    sm:pb-20
-    md:min-h-[820px]
-    md:px-20
-    md:pb-24
-  "
->
-  {/* BLOQUE COMPLETO */}
+          {/* TÍTULO */}
 
-  <motion.div
-    className="
-      flex
-      w-full
-      max-w-[680px]
-      flex-col
-      items-center
-    "
-    initial={{
-      opacity: 0,
-      y: 30,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    viewport={{
-      once: true,
-      amount: 0.2,
-    }}
-    transition={{
-      duration: 1,
-      ease,
-    }}
-  >
-    {/* COMILLA */}
+          <motion.h2
+            className="
+              mt-7
+              font-cursiveDancing
+              text-[38px]
+              leading-[1.2]
+              sm:text-[52px]
+              md:text-[58px]
+            "
+            style={{ color: palette.white }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              delay: 0.2,
+              ease,
+            }}
+          >
+            ¡Ya falta poco
+            <br />
+            para nuestra boda!
+          </motion.h2>
 
-    <span
-      className="
-        block
-        h-[42px]
-        font-serif
-        text-[62px]
-        font-light
-        leading-none
-        sm:text-[72px]
-      "
-      style={{
-        color: "rgba(247,244,236,0.55)",
-      }}
-    >
-      “
-    </span>
+          {/* SEPARADOR */}
 
-    {/* FRASE */}
+          <div className="mt-8">
+            <Divider />
+          </div>
 
-    <blockquote
-      className="
-        mt-1
-        font-serif
-        text-[20px]
-        font-normal
-        leading-[1.55]
-        sm:text-[25px]
-        sm:leading-[1.55]
-        md:text-[28px]
-      "
-      style={{
-        color: palette.white,
-        textShadow:
-          "0 2px 12px rgba(0,0,0,0.45)",
-      }}
-    >
-      No fuiste antes ni despues, fuiste a tiempo. A tiempo para que me enamorara de ti
-    </blockquote>
+          {/* MENSAJE PRINCIPAL */}
 
-    {/* SEPARADOR */}
+          <motion.p
+            className="
+              mt-9
+              font-serif
+              text-[15px]
+              leading-[1.95]
+              sm:text-[17px]
+            "
+            style={{ color: palette.ivory }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              delay: 0.3,
+              ease,
+            }}
+          >
+            Cada día estamos más cerca de celebrar
+            uno de los momentos más especiales
+            de nuestras vidas.
+            <br />
+            <br />
+            Para ayudarnos a preparar cada detalle
+            de este día, nos gustaría pedirte
+            que nos{" "}
+            <span className="font-semibold">
+              reconfirmes tu asistencia.
+            </span>
+          </motion.p>
 
-    <div className="mt-5">
-      <Divider />
-    </div>
+          {/* FECHA LÍMITE */}
 
-    {/* REFERENCIA */}
+          <motion.div
+            className="
+              mt-10 w-full
+              max-w-[390px]
+              border-y
+              px-4 py-7
+            "
+            style={{
+              borderColor: "rgba(247,244,236,0.40)",
+            }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              delay: 0.3,
+              ease,
+            }}
+          >
+            <p
+              className="
+                text-[10px]
+                uppercase tracking-[0.3em]
+                sm:text-[11px]
+              "
+              style={{ color: palette.beige }}
+            >
+              Fecha límite para reconfirmar
+            </p>
 
-    <p
-      className="
-        mt-3
-        font-serif
-        text-[11px]
-        uppercase
-        tracking-[0.3em]
-        sm:text-[12px]
-      "
-      style={{
-        color: palette.ivory,
-      }}
-    >
-      Jaime Sabines
-    </p>
+            <p
+              className="
+                mt-4 font-serif
+                text-[26px]
+                leading-tight
+                sm:text-[32px]
+              "
+              style={{ color: palette.white }}
+            >
+              6 de noviembre
+            </p>
 
-    
-  </motion.div>
-</div>
+            <p
+              className="
+                mt-2 font-serif
+                text-[13px]
+                tracking-[0.2em]
+              "
+              style={{ color: palette.ivory }}
+            >
+              2026
+            </p>
+          </motion.div>
+
+          {/* INDICACIONES */}
+
+          <motion.p
+            className="
+              mt-9
+              font-serif
+              text-[14px]
+              leading-[1.95]
+              sm:text-[16px]
+            "
+            style={{ color: palette.ivory }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              delay: 0.4,
+              ease,
+            }}
+          >
+            Te agradeceríamos mucho que
+            completes el formulario que
+            encontrarás a continuación.
+            <br />
+            <br />
+            Si por alguna razón tus planes
+            han cambiado, no te preocupes.
+            Solo te pedimos que nos lo hagas
+            saber para organizar correctamente
+            los lugares.
+          </motion.p>
+
+          {/* DESPEDIDA */}
+
+          <motion.div
+            className="
+              mt-10 flex flex-col
+              items-center
+            "
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              delay: 0.4,
+            }}
+          >
+            <p
+              className="
+                font-cursiveDancing
+                text-[36px]
+                sm:text-[44px]
+              "
+              style={{ color: palette.white }}
+            >
+              ¡Muchas gracias!
+            </p>
+
+            <p
+              className="
+                mt-3 font-serif
+                text-[10px]
+                uppercase
+                tracking-[0.25em]
+                sm:text-[11px]
+              "
+              style={{ color: palette.beige }}
+            >
+              Con cariño, Eimy & Andre
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* INDICACIÓN FUERA DE LA TARJETA */}
+
+      <motion.div
+        className="
+          mt-12 flex flex-col
+          items-center gap-3
+          text-center
+        "
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          delay: 0.3,
+        }}
+      >
+        <p
+          className="
+            font-serif
+            text-[11px]
+            uppercase
+            tracking-[0.3em]
+          "
+          style={{ color: palette.olive }}
+        >
+          Desliza para reconfirmar
+        </p>
+
+        <motion.span
+          className="text-2xl"
+          style={{ color: palette.olive }}
+          animate={{ y: [0, 7, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          ↓
+        </motion.span>
       </motion.div>
     </section>
   );
